@@ -1,30 +1,45 @@
 package com.greenfox.exam.spring.controller;
 
 
+import com.greenfox.exam.spring.model.Answers;
 import com.greenfox.exam.spring.model.Question;
+import com.greenfox.exam.spring.model.Questions;
+import com.greenfox.exam.spring.repository.AnswerRepository;
 import com.greenfox.exam.spring.repository.QuestionRepository;
+import com.greenfox.exam.spring.repository.QuestionsRepository;
+import com.greenfox.exam.spring.service.ChooseRandomFive;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class RestQuizController {
 
+
   @Autowired
   QuestionRepository questionRepository;
 
+  @Autowired
+  QuestionsRepository questionsRepository;
+
+  @Autowired
+  AnswerRepository answerRepository;
+
   @GetMapping("/questions")
-  public Iterable<Question> getQuestion() {
-    return questionRepository.findAll();
+  public Questions askQuestions() {
+    List allQuestions = (List)questionRepository.findAll();
+    return new Questions(ChooseRandomFive.chooseQuestions(allQuestions));
   }
+
+  @PostMapping ("/answers")
+  public String giveAnswer(@RequestBody Answers answers){
+
+    return "";
+  }
+
 }
 
 
-//  @PostMapping ("/answers")
-//  public Response getAnswer(@RequestBody ) {
-//    questionRepository.save(meal);
-//    return new Response("ok");}
+

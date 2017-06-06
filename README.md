@@ -105,16 +105,22 @@ Your task is to create a RESTful quiz application with full of greenfox question
 ### In what cases would you choose to use an abstract class over an interface?
 
 Please define it with your own words. We are expecting at least 3 distinct ideas that you write here:
+With abstract classes it's possible to declare fields that are not static and final, and define public, protected, and private concrete methods. An abstract class is a class that cannot be instantiated, but must be inherited from. An abstract class may be fully implemented, but is more usually partially implemented or not implemented at all, thereby encapsulating common functionality for inherited classes.
+An interface is a totally abstract set of members that can be thought of as defining a contract for conduct. With interfaces, all fields are automatically public, static, and final, and all methods are public.
+
+1, When I want to share code among several closely related classes.
+2, When I expect that classes that extend my abstract class have many common methods or fields, or require access modifiers protected or private (not only public).
+3, When I want to declare non-static or non-final fields. T
 
 
 ### Analyzing URL
 Please name the parts of the URL below.
 [<img src="assets/URLanalysis.png" alt="parts of URL" />](assets/URLanalysis.png?raw=true)
 
-1:  
-2:  
-3:  
-4:  
-5:  
-6:  
-7:  
+1:  protocol
+2:  subdomain
+3:  domain name
+4:  port
+5:  path
+6:  query
+7:  parameters

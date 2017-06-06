@@ -1,28 +1,28 @@
 package com.greenfox.exam.spring.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
-@Entity
-@Table(name = "questions")
 @AllArgsConstructor
+@Entity
 @Getter
 @Setter
-public class Question {
-
+public class Answers {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
-  String question;
+  @Column(columnDefinition = "LONGBLOB")
+  ArrayList<Question> answers;
 
-  public Question() {
+  public Answers(){
   }
 
-  public Question(String question) {
-    this.question = question;
+  public Answers(ArrayList<Question> answers) {
+    this.answers = answers;
   }
+
 }
