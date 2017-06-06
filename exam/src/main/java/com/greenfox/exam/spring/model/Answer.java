@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @AllArgsConstructor
 @Entity
@@ -16,6 +15,7 @@ public class Answer {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
+  String question;
   String answer;
 
   public Answer() {

@@ -16,12 +16,12 @@ public class Answers {
   @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
   @Column(columnDefinition = "LONGBLOB")
-  ArrayList<Question> answers;
+  ArrayList<Answer> answers;
 
   public Answers(){
   }
 
-  public Answers(ArrayList<Question> answers) {
+  public Answers(ArrayList<Answer> answers) {
     this.answers = answers;
   }
 
